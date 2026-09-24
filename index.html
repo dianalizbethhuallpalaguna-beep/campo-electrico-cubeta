@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Campo eléctrico y superficies equipotenciales</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#eef3f7;
+    color:#243447;
+}
+
+header{
+    background:#062d5c;
+    color:white;
+    padding:18px 30px;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+header h1{
+    margin:0;
+    font-size:25px;
+}
+
+header p{
+    margin:6px 0 0;
+    opacity:.85;
+}
+
+.container{
+    max-width:1450px;
+    margin:auto;
+    padding:20px;
+}
+
+.controls{
+    background:white;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:18px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.controls-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:15px;
+}
+
+.control{
+    background:#f7f9fb;
+    border-radius:8px;
+    padding:12px;
+}
+
+.control label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:7px;
+}
+
+input[type="range"]{
+    width:100%;
+}
+
+.value{
+    color:#0b5cab;
+    font-weight:bold;
+}
+
+button{
+    border:none;
+    border-radius:7px;
+    padding:10px 15px;
+    background:#0b5cab;
+    color:white;
+    cursor:pointer;
+    font-weight:bold;
+    margin:3px;
+}
+
+button:hover{
+    background:#062d5c;
+}
+
+button.secondary{
+    background:#607080;
+}
+
+.main-grid{
+    display:grid;
+    grid-template-columns:1.6fr 1fr;
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+    color:#062d5c;
+    margin-top:0;
+}
+
+canvas{
+    width:100%;
+    display:block;
+    border-radius:8px;
+    background:#fafafa;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:12px;
+}
+
+.info{
+    background:#eef7fb;
+    border-left:4px solid #17b8e6;
+    padding:10px;
+    border-radius:6px;
+}
+
+.info strong{
+    color:#062d5c;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:10px;
+}
+
+th{
+    background:#062d5c;
+    color:white;
+}
+
+th,td{
+    padding:8px;
+    text-align:center;
+    border:1px solid #d7dee5;
+}
+
+td input{
+    width:90px;
+    padding:5px;
+    text-align:center;
+}
+
+.equation{
+    background:#f1f7fb;
+    padding:15px;
+    border-radius:8px;
+    text-align:center;
+    font-size:20px;
+    margin:10px 0;
+}
+
+.experiment{
+    margin-top:18px;
+}
+
+@media(max-width:900px){
+
+    .main-grid{
+        grid-template-columns:1fr;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Campo eléctrico y superficies equipotenciales</h1>
+
+<p>
+Laboratorio de Fluidos y Termodinámica — Cubeta electrolítica
+</p>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- CONTROLES -->
+
+<div class="controls">
+
+<h2>Parámetros de la simulación</h2>
+
+<div class="controls-grid">
+
+<div class="control">
+
+<label>
+Tensión aplicada:
+<span class="value" id="voltageValue">12.0 V</span>
+</label>
+
+<input
+type="range"
+id="voltage"
+min="4"
+max="20"
+step="0.5"
+value="12"
+>
+
+</div>
+
+
+<div class="control">
+
+<label>
+Separación entre electrodos:
+<span class="value" id="distanceValue">12.0 cm</span>
+</label>
+
+<input
+type="range"
+id="distance"
+min="6"
+max="20"
+step="0.5"
+value="12"
+>
+
+</div>
+
+
+<div class="control">
+
+<label>
+Posición de la sonda:
+
+<span class="value" id="positionValue">
+6.0 cm
+</span>
+
+</label>
+
+<input
+type="range"
+id="position"
+min="0"
+max="12"
+step="0.1"
+value="6"
+>
+
+</div>
+
+
+<div class="control">
+
+<label>
+Animación del campo
+</label>
+
+<button id="animateButton">
+▶ Iniciar animación
+</button>
+
+<button
+class="secondary"
+id="resetButton"
+>
+↺ Restablecer
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- CONTENIDO PRINCIPAL -->
+
+<div class="main-grid">
+
+
+<!-- SIMULACIÓN -->
+
+<div class="card">
+
+<h2>1. Distribución del campo y potencial</h2>
+
+<canvas id="fieldCanvas" width="850" height="600"></canvas>
+
+
+<div class="info-grid">
+
+<div class="info">
+
+<strong>Potencial en la sonda</strong>
+
+<div id="probeVoltage">
+V = 6.00 V
+</div>
+
+</div>
+
+
+<div class="info">
+
+<strong>Campo eléctrico</strong>
+
+<div id="electricField">
+E = 100 V/m
+</div>
+
+</div>
+
+
+<div class="info">
+
+<strong>Posición</strong>
+
+<div id="probePosition">
+x = 0.060 m
+</div>
+
+</div>
+
+
+<div class="info">
+
+<strong>Dirección del campo</strong>
+
+<div>
++12 V → 0 V
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- GRAFICA -->
+
+<div class="card">
+
+<h2>2. Potencial eléctrico V(x)</h2>
+
+<canvas id="graphCanvas" width="650" height="600"></canvas>
+
+<div class="equation">
+
+V(x) = V<sub>0</sub> x / d
+
+</div>
+
+<div class="equation">
+
+E = − dV/dx
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- TABLA 5.2 -->
+
+<div class="card experiment">
+
+<h2>3. Tabla 5.2 — Potencial en función de la distancia</h2>
+
+<p>
+
+Seleccione las posiciones indicadas en la práctica.
+La simulación muestra el valor teórico. Luego puedes reemplazarlo por
+los valores medidos experimentalmente.
+
+</p>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>n</th>
+
+<th>x (m)</th>
+
+<th>x (cm)</th>
+
+<th>V teórico (V)</th>
+
+<th>V experimental (V)</th>
+
+<th>Diferencia (%)</th>
+
+</tr>
+
+</thead>
+
+<tbody id="dataTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- EXPLICACIÓN -->
+
+<div class="card experiment">
+
+<h2>4. Interpretación física</h2>
+
+<p>
+
+Entre dos electrodos planos paralelos, despreciando los efectos de borde,
+el potencial cambia aproximadamente de manera lineal con la posición.
+
+</p>
+
+<div class="equation">
+
+V(x) = V<sub>0</sub> x / d
+
+</div>
+
+<p>
+
+Por tanto, la pendiente de la gráfica potencial-distancia es:
+
+</p>
+
+<div class="equation">
+
+dV/dx = V<sub>0</sub>/d
+
+</div>
+
+<p>
+
+El campo eléctrico está relacionado con el gradiente de potencial:
+
+</p>
+
+<div class="equation">
+
+<strong>E⃗ = −∇V</strong>
+
+</div>
+
+<p>
+
+En este montaje, el campo es aproximadamente uniforme y apunta desde
+el electrodo conectado a +12 V hacia el electrodo conectado a tierra.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   VARIABLES
+============================================================ */
+
+const fieldCanvas =
+document.getElementById("fieldCanvas");
+
+const graphCanvas =
+document.getElementById("graphCanvas");
+
+const fctx =
+fieldCanvas.getContext("2d");
+
+const gctx =
+graphCanvas.getContext("2d");
+
+
+const voltageSlider =
+document.getElementById("voltage");
+
+const distanceSlider =
+document.getElementById("distance");
+
+const positionSlider =
+document.getElementById("position");
+
+
+let voltage = 12;
+
+let distance = 12;
+
+let position = 6;
+
+let animationRunning = false;
+
+let animationId;
+
+
+/* ============================================================
+   CONTROLES
+============================================================ */
+
+voltageSlider.addEventListener("input", update);
+
+distanceSlider.addEventListener("input", update);
+
+positionSlider.addEventListener("input", update);
+
+
+document
+.getElementById("animateButton")
+.addEventListener("click",toggleAnimation);
+
+
+document
+.getElementById("resetButton")
+.addEventListener("click",resetSimulation);
+
+
+/* ============================================================
+   ACTUALIZAR
+============================================================ */
+
+function update(){
+
+    voltage =
+    parseFloat(voltageSlider.value);
+
+    distance =
+    parseFloat(distanceSlider.value);
+
+    position =
+    parseFloat(positionSlider.value);
+
+    if(position > distance){
+
+        position = distance;
+
+        positionSlider.value = distance;
+
+    }
+
+    document
+    .getElementById("voltageValue")
+    .textContent =
+    voltage.toFixed(1) + " V";
+
+
+    document
+    .getElementById("distanceValue")
+    .textContent =
+    distance.toFixed(1) + " cm";
+
+
+    document
+    .getElementById("positionValue")
+    .textContent =
+    position.toFixed(1) + " cm";
+
+
+    drawField();
+
+    drawGraph();
+
+    updateTable();
+
+}
+
+
+/* ============================================================
+   POTENCIAL
+============================================================ */
+
+function potential(x){
+
+    const d = distance / 100;
+
+    return voltage * x / d;
+
+}
+
+
+/* ============================================================
+   CAMPO
+============================================================ */
+
+function electricField(){
+
+    const d = distance / 100;
+
+    return voltage / d;
+
+}
+
+
+/* ============================================================
+   CAMPO Y EQUIPOTENCIALES
+============================================================ */
+
+function drawField(){
+
+    const W =
+    fieldCanvas.width;
+
+    const H =
+    fieldCanvas.height;
+
+
+    fctx.clearRect(0,0,W,H);
+
+
+    /* fondo */
+
+    fctx.fillStyle =
+    "#eaf5f8";
+
+    fctx.fillRect(0,0,W,H);
+
+
+    const left = 100;
+
+    const right = W - 100;
+
+    const top = 70;
+
+    const bottom = H - 70;
+
+
+    /* cubeta */
+
+    fctx.strokeStyle =
+    "#8aa3b5";
+
+    fctx.lineWidth = 3;
+
+    fctx.strokeRect(
+        left,
+        top,
+        right-left,
+        bottom-top
+    );
+
+
+    /* electrodos */
+
+    fctx.fillStyle =
+    "#6c757d";
+
+    fctx.fillRect(
+        left-12,
+        top,
+        12,
+        bottom-top
+    );
+
+    fctx.fillRect(
+        right,
+        top,
+        12,
+        bottom-top
+    );
+
+
+    /* etiquetas */
+
+    fctx.fillStyle =
+    "#062d5c";
+
+    fctx.font =
+    "bold 18px Arial";
+
+    fctx.textAlign =
+    "center";
+
+    fctx.fillText(
+        "0 V / TIERRA",
+        left,
+        42
+    );
+
+    fctx.fillText(
+        "+" + voltage.toFixed(0) + " V",
+        right,
+        42
+    );
+
+
+    /* equipotenciales */
+
+    const potentials =
+    [2,4,6,8,10];
+
+
+    potentials.forEach(V=>{
+
+        if(V >= voltage)
+            return;
+
+
+        const ratio =
+        V / voltage;
+
+        const x =
+        left +
+        ratio*(right-left);
+
+
+        fctx.beginPath();
+
+        fctx.moveTo(
+            x,
+            top
+        );
+
+        fctx.lineTo(
+            x,
+            bottom
+        );
+
+        fctx.strokeStyle =
+        "#17b8e6";
+
+        fctx.lineWidth = 3;
+
+        fctx.setLineDash(
+        [8,6]
+        );
+
+        fctx.stroke();
+
+        fctx.setLineDash([]);
+
+
+        fctx.fillStyle =
+        "#062d5c";
+
+        fctx.font =
+        "bold 15px Arial";
+
+        fctx.fillText(
+            V + " V",
+            x,
+            bottom + 25
+        );
+
+    });
+
+
+    /* líneas de campo */
+
+    const numberLines = 8;
+
+
+    for(let j=1;j<=numberLines;j++){
+
+        const y =
+        top +
+        j*(bottom-top)/(numberLines+1);
+
+
+        fctx.beginPath();
+
+        fctx.moveTo(
+            right-5,
+            y
+        );
+
+        fctx.lineTo(
+            left+5,
+            y
+        );
+
+        fctx.strokeStyle =
+        "#0b5cab";
+
+        fctx.lineWidth = 2;
+
+        fctx.stroke();
+
+
+        /* flechas */
+
+        for(
+            let x=left+50;
+            x<right-30;
+            x+=90
+        ){
+
+            drawArrow(
+                x,
+                y,
+                x-20,
+                y,
+                "#0b5cab"
+            );
+
+        }
+
+    }
+
+
+    /* sonda */
+
+    const px =
+    left +
+    (position/distance)*
+    (right-left);
+
+
+    const py =
+    (top+bottom)/2;
+
+
+    fctx.beginPath();
+
+    fctx.arc(
+        px,
+        py,
+        9,
+        0,
+        2*Math.PI
+    );
+
+    fctx.fillStyle =
+    "#e63946";
+
+    fctx.fill();
+
+
+    fctx.strokeStyle =
+    "white";
+
+    fctx.lineWidth = 3;
+
+    fctx.stroke();
+
+
+    fctx.fillStyle =
+    "#243447";
+
+    fctx.font =
+    "bold 16px Arial";
+
+    fctx.fillText(
+        "Sonda",
+        px,
+        py-17
+    );
+
+
+    /* escala */
+
+    fctx.fillStyle =
+    "#243447";
+
+    fctx.font =
+    "14px Arial";
+
+    fctx.textAlign =
+    "left";
+
+    fctx.fillText(
+        "x = 0",
+        left,
+        bottom+50
+    );
+
+    fctx.textAlign =
+    "right";
+
+    fctx.fillText(
+        "x = " + distance.toFixed(1) + " cm",
+        right,
+        bottom+50
+    );
+
+
+    /* información */
+
+    document
+    .getElementById("probeVoltage")
+    .textContent =
+    "V = " +
+    potential(position/100)
+    .toFixed(2) +
+    " V";
+
+
+    document
+    .getElementById("probePosition")
+    .textContent =
+    "x = " +
+    (position/100).toFixed(3) +
+    " m";
+
+
+    document
+    .getElementById("electricField")
+    .textContent =
+    "E = " +
+    electricField().toFixed(1) +
+    " V/m";
+
+}
+
+
+/* ============================================================
+   FLECHAS
+============================================================ */
+
+function drawArrow(
+    x1,
+    y1,
+    x2,
+    y2,
+    color
+){
+
+    fctx.strokeStyle =
+    color;
+
+    fctx.fillStyle =
+    color;
+
+    fctx.lineWidth = 2;
+
+    fctx.beginPath();
+
+    fctx.moveTo(
+        x1,
+        y1
+    );
+
+    fctx.lineTo(
+        x2,
+        y2
+    );
+
+    fctx.stroke();
+
+
+    const angle =
+    Math.atan2(
+        y2-y1,
+        x2-x1
+    );
+
+
+    fctx.beginPath();
+
+    fctx.moveTo(
+        x2,
+        y2
+    );
+
+    fctx.lineTo(
+        x2-
+        8*Math.cos(angle-0.5),
+        y2-
+        8*Math.sin(angle-0.5)
+    );
+
+    fctx.lineTo(
+        x2-
+        8*Math.cos(angle+0.5),
+        y2-
+        8*Math.sin(angle+0.5)
+    );
+
+    fctx.closePath();
+
+    fctx.fill();
+
+}
+
+
+/* ============================================================
+   GRÁFICA V(x)
+============================================================ */
+
+function drawGraph(){
+
+    const W =
+    graphCanvas.width;
+
+    const H =
+    graphCanvas.height;
+
+
+    gctx.clearRect(
+        0,
+        0,
+        W,
+        H
+    );
+
+
+    gctx.fillStyle =
+    "#ffffff";
+
+    gctx.fillRect(
+        0,
+        0,
+        W,
+        H
+    );
+
+
+    const marginLeft = 75;
+
+    const marginBottom = 60;
+
+    const marginTop = 40;
+
+    const marginRight = 35;
+
+
+    const plotW =
+    W-
+    marginLeft-
+    marginRight;
+
+
+    const plotH =
+    H-
+    marginTop-
+    marginBottom;
+
+
+    /* ejes */
+
+    gctx.strokeStyle =
+    "#243447";
+
+    gctx.lineWidth = 2;
+
+
+    gctx.beginPath();
+
+    gctx.moveTo(
+        marginLeft,
+        marginTop
+    );
+
+    gctx.lineTo(
+        marginLeft,
+        H-marginBottom
+    );
+
+    gctx.lineTo(
+        W-marginRight,
+        H-marginBottom
+    );
+
+    gctx.stroke();
+
+
+    /* curva teórica */
+
+    gctx.beginPath();
+
+
+    for(let i=0;i<=100;i++){
+
+        const x =
+        i/100 * distance/100;
+
+
+        const V =
+        potential(x);
+
+
+        const px =
+        marginLeft +
+        (x/(distance/100))*plotW;
+
+
+        const py =
+        H-marginBottom-
+        (V/voltage)*plotH;
+
+
+        if(i===0)
+            gctx.moveTo(px,py);
+        else
+            gctx.lineTo(px,py);
+
+    }
+
+
+    gctx.strokeStyle =
+    "#0b5cab";
+
+    gctx.lineWidth = 4;
+
+    gctx.stroke();
+
+
+    /* punto */
+
+    const px =
+    marginLeft+
+    (position/distance)*plotW;
+
+
+    const V =
+    potential(position/100);
+
+
+    const py =
+    H-marginBottom-
+    (V/voltage)*plotH;
+
+
+    gctx.beginPath();
+
+    gctx.arc(
+        px,
+        py,
+        8,
+        0,
+        2*Math.PI
+    );
+
+    gctx.fillStyle =
+    "#e63946";
+
+    gctx.fill();
+
+
+    /* etiquetas */
+
+    gctx.fillStyle =
+    "#243447";
+
+    gctx.font =
+    "14px Arial";
+
+    gctx.textAlign =
+    "center";
+
+
+    gctx.fillText(
+        "Distancia x (m)",
+        marginLeft+plotW/2,
+        H-15
+    );
+
+
+    gctx.save();
+
+    gctx.translate(
+        20,
+        marginTop+plotH/2
+    );
+
+    gctx.rotate(
+        -Math.PI/2
+    );
+
+    gctx.fillText(
+        "Potencial V (V)",
+        0,
+        0
+    );
+
+    gctx.restore();
+
+
+    /* valores extremos */
+
+    gctx.textAlign =
+    "right";
+
+    gctx.fillText(
+        voltage.toFixed(0)+" V",
+        marginLeft-8,
+        marginTop+5
+    );
+
+    gctx.fillText(
+        "0 V",
+        marginLeft-8,
+        H-marginBottom
+    );
+
+
+    /* ecuación */
+
+    gctx.textAlign =
+    "left";
+
+    gctx.font =
+    "bold 15px Arial";
+
+    gctx.fillText(
+        "V(x) = "+(voltage/(distance/100)).toFixed(1)+" x",
+        marginLeft+15,
+        marginTop+25
+    );
+
+}
+
+
+/* ============================================================
+   TABLA 5.2
+============================================================ */
+
+function updateTable(){
+
+    const positions =
+    [0.010,0.030,0.050,0.070,0.090,0.110];
+
+
+    const table =
+    document.getElementById(
+        "dataTable"
+    );
+
+
+    table.innerHTML = "";
+
+
+    positions.forEach(
+    (x,i)=>{
+
+        const V =
+        potential(x);
+
+
+        const row =
+        document.createElement("tr");
+
+
+        row.innerHTML = `
+
+        <td>${i+1}</td>
+
+        <td>${x.toFixed(3)}</td>
+
+        <td>${(x*100).toFixed(1)}</td>
+
+        <td>${V.toFixed(3)}</td>
+
+        <td>
+        <input
+        type="number"
+        step="0.01"
+        class="experimental"
+        data-x="${x}"
+        placeholder="—"
+        >
+        </td>
+
+        <td class="error">
+        —
+        </td>
+
+        `;
+
+
+        table.appendChild(row);
+
+    });
+
+
+    document
+    .querySelectorAll(".experimental")
+    .forEach(input=>{
+
+        input.addEventListener(
+            "input",
+            calculateErrors
+        );
+
+    });
+
+}
+
+
+/* ============================================================
+   ERROR EXPERIMENTAL
+============================================================ */
+
+function calculateErrors(){
+
+    const inputs =
+    document.querySelectorAll(
+        ".experimental"
+    );
+
+
+    inputs.forEach(input=>{
+
+        const experimental =
+        parseFloat(input.value);
+
+
+        const x =
+        parseFloat(input.dataset.x);
+
+
+        const theoretical =
+        potential(x);
+
+
+        const cell =
+        input.parentElement
+        .nextElementSibling;
+
+
+        if(
+            !isNaN(experimental)
+            &&
+            theoretical !== 0
+        ){
+
+            const error =
+            Math.abs(
+                (experimental-theoretical)/
+                theoretical
+            )*100;
+
+
+            cell.textContent =
+            error.toFixed(2)+" %";
+
+        }
+        else{
+
+            cell.textContent =
+            "—";
+
+        }
+
+    });
+
+}
+
+
+/* ============================================================
+   ANIMACIÓN
+============================================================ */
+
+function toggleAnimation(){
+
+    animationRunning =
+    !animationRunning;
+
+
+    const button =
+    document.getElementById(
+        "animateButton"
+    );
+
+
+    if(animationRunning){
+
+        button.textContent =
+        "⏸ Pausar animación";
+
+
+        animate();
+
+    }
+    else{
+
+        button.textContent =
+        "▶ Iniciar animación";
+
+    }
+
+}
+
+
+function animate(){
+
+    if(!animationRunning)
+        return;
+
+
+    position += 0.08;
+
+
+    if(position > distance){
+
+        position = 0;
+
+    }
+
+
+    positionSlider.value =
+    position;
+
+
+    update();
+
+
+    animationId =
+    requestAnimationFrame(
+        animate
+    );
+
+}
+
+
+/* ============================================================
+   RESTABLECER
+============================================================ */
+
+function resetSimulation(){
+
+    voltage = 12;
+
+    distance = 12;
+
+    position = 6;
+
+
+    voltageSlider.value = 12;
+
+    distanceSlider.value = 12;
+
+    positionSlider.value = 6;
+
+
+    animationRunning = false;
+
+
+    document
+    .getElementById("animateButton")
+    .textContent =
+    "▶ Iniciar animación";
+
+
+    update();
+
+}
+
+
+/* ============================================================
+   INICIO
+============================================================ */
+
+update();
+
+</script>
+
+</body>
+</html>
