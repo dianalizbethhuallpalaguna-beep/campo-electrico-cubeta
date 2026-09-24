@@ -19,434 +19,244 @@ Campo eléctrico y superficies equipotenciales
 }
 
 body{
-
     margin:0;
-
-    font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+    font-family:Arial, Helvetica, sans-serif;
     background:#edf3f7;
-
     color:#243447;
-
 }
 
-
-/* =========================================================
-   ENCABEZADO
-========================================================= */
-
 header{
-
     background:#062d5c;
-
     color:white;
-
     padding:18px 30px;
-
-    box-shadow:
-    0 3px 12px
-    rgba(0,0,0,.18);
-
+    box-shadow:0 3px 12px rgba(0,0,0,.18);
 }
 
 header h1{
-
     margin:0;
-
     font-size:26px;
-
 }
 
 header p{
-
     margin:6px 0 0;
-
     opacity:.85;
-
 }
-
-
-/* =========================================================
-   CONTENEDOR
-========================================================= */
 
 .container{
-
     max-width:1450px;
-
     margin:auto;
-
     padding:20px;
-
 }
-
-
-/* =========================================================
-   CONTROLES
-========================================================= */
 
 .controls{
-
     background:white;
-
     border-radius:12px;
-
     padding:18px;
-
     margin-bottom:18px;
-
-    box-shadow:
-    0 3px 12px
-    rgba(0,0,0,.08);
-
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
-
 
 .controls-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        auto-fit,
-        minmax(220px,1fr)
-    );
-
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:15px;
-
 }
-
 
 .control{
-
     background:#f6f9fb;
-
     border-radius:8px;
-
     padding:12px;
-
 }
-
 
 .control label{
-
     display:block;
-
     font-weight:bold;
-
     margin-bottom:7px;
-
 }
-
 
 input[type="range"]{
-
     width:100%;
-
 }
-
 
 .value{
-
     color:#0b5cab;
-
     font-weight:bold;
-
 }
-
 
 button{
-
     border:none;
-
     border-radius:7px;
-
     padding:9px 13px;
-
     background:#0b5cab;
-
     color:white;
-
     cursor:pointer;
-
     font-weight:bold;
-
     margin:3px;
-
 }
-
 
 button:hover{
-
     background:#062d5c;
-
 }
-
 
 button.secondary{
-
     background:#657786;
-
 }
-
 
 button.green{
-
     background:#17804b;
-
 }
-
 
 button.red{
-
     background:#b3261e;
-
 }
 
-
-/* =========================================================
-   TARJETAS
-========================================================= */
+button.selected{
+    background:#062d5c;
+    box-shadow:0 0 0 3px #17b8e6;
+}
 
 .card{
-
     background:white;
-
     border-radius:12px;
-
     padding:15px;
-
     margin-bottom:18px;
-
-    box-shadow:
-    0 3px 12px
-    rgba(0,0,0,.08);
-
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
-
 
 .card h2{
-
     color:#062d5c;
-
     margin-top:0;
-
 }
-
-
-/* =========================================================
-   CANVAS
-========================================================= */
 
 canvas{
-
     width:100%;
-
     display:block;
-
     background:#fdfdfd;
-
     border-radius:8px;
-
 }
-
-
-/* =========================================================
-   INFORMACIÓN
-========================================================= */
 
 .info-grid{
-
     display:grid;
-
-    grid-template-columns:
-    repeat(
-        4,
-        1fr
-    );
-
+    grid-template-columns:repeat(4,1fr);
     gap:10px;
-
     margin-top:12px;
-
 }
-
 
 .info{
-
     background:#eef7fb;
-
-    border-left:
-    4px solid #17b8e6;
-
+    border-left:4px solid #17b8e6;
     padding:10px;
-
     border-radius:6px;
-
 }
-
 
 .info strong{
-
     color:#062d5c;
-
 }
-
-
-/* =========================================================
-   DOS COLUMNAS
-========================================================= */
 
 .main-grid{
-
     display:grid;
-
-    grid-template-columns:
-    1.5fr
-    1fr;
-
+    grid-template-columns:1.5fr 1fr;
     gap:18px;
-
 }
-
-
-/* =========================================================
-   ECUACIONES
-========================================================= */
 
 .equation{
-
     background:#f1f7fb;
-
     padding:14px;
-
     border-radius:8px;
-
     text-align:center;
-
     font-size:20px;
-
     margin:10px 0;
-
+    font-family:"Times New Roman",serif;
 }
 
-
-/* =========================================================
-   TABLAS
-========================================================= */
+.physics-note{
+    background:#fff8e6;
+    border-left:5px solid #f0a000;
+    padding:12px;
+    border-radius:7px;
+    margin:12px 0;
+}
 
 table{
-
     width:100%;
-
-    border-collapse:
-    collapse;
-
+    border-collapse:collapse;
     margin-top:10px;
-
 }
-
 
 th{
-
     background:#062d5c;
-
     color:white;
-
 }
-
 
 th,td{
-
     padding:8px;
-
     text-align:center;
-
-    border:
-    1px solid #d5dde4;
-
+    border:1px solid #d5dde4;
 }
-
 
 td input{
-
     width:80px;
-
     padding:5px;
-
     text-align:center;
-
 }
-
-
-/* =========================================================
-   PUNTOS EXPERIMENTALES
-========================================================= */
 
 .point-controls{
-
     display:flex;
-
     flex-wrap:wrap;
-
     gap:8px;
-
     align-items:center;
-
     margin-bottom:10px;
-
 }
-
 
 .badge{
-
     display:inline-block;
-
     padding:7px 12px;
-
     border-radius:20px;
-
     background:#e7f5fa;
-
     color:#062d5c;
-
     font-weight:bold;
-
 }
 
+.legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:10px;
+    font-size:14px;
+}
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.legend-dot{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+}
+
+.small{
+    font-size:13px;
+    color:#657786;
+}
 
 @media(max-width:950px){
 
     .main-grid{
-
         grid-template-columns:1fr;
-
     }
-
 
     .info-grid{
-
-        grid-template-columns:
-        repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
-
 }
-
 
 @media(max-width:600px){
 
     .info-grid{
-
         grid-template-columns:1fr;
-
     }
 
 }
@@ -476,7 +286,7 @@ Laboratorio — Cubeta electrolítica con electrodos planos paralelos
 
 
 <!-- ======================================================
-     CONTROLES GENERALES
+     CONFIGURACIÓN
 ====================================================== -->
 
 <div class="controls">
@@ -485,21 +295,15 @@ Laboratorio — Cubeta electrolítica con electrodos planos paralelos
 Configuración experimental
 </h2>
 
-
 <div class="controls-grid">
+
 <div class="control">
 
 <label>
-
 Posición de la sonda:
-
-<span
-class="value"
-id="positionValue"
->
+<span class="value" id="positionValue">
 6.0 cm
 </span>
-
 </label>
 
 <input
@@ -513,29 +317,19 @@ value="6"
 
 </div>
 
+
 <div class="control">
 
 <label>
-
 Tensión aplicada:
-
-<span
-class="value"
-id="voltageValue"
->
-12.0 V
+<span class="value">
+10.0 V
 </span>
-
 </label>
 
-<input
-type="range"
-id="voltage"
-min="4"
-max="20"
-step="0.5"
-value="12"
->
+<div class="small">
+La práctica trabaja con 10 V como potencial máximo.
+</div>
 
 </div>
 
@@ -543,16 +337,10 @@ value="12"
 <div class="control">
 
 <label>
-
-Separación:
-
-<span
-class="value"
-id="distanceValue"
->
+Separación entre electrodos:
+<span class="value" id="distanceValue">
 12.0 cm
 </span>
-
 </label>
 
 <input
@@ -573,16 +361,13 @@ value="12"
 Modelo físico
 </label>
 
-<button
-id="idealButton"
->
+<button id="idealButton">
 Modelo ideal
 </button>
 
 <button
 id="edgeButton"
-class="secondary"
->
+class="secondary">
 Efectos de borde
 </button>
 
@@ -592,24 +377,20 @@ Efectos de borde
 <div class="control">
 
 <label>
-Animación
+Animación de la sonda
 </label>
 
-<button
-id="animateButton"
->
+<button id="animateButton">
 ▶ Iniciar
 </button>
 
 <button
 id="resetButton"
-class="secondary"
->
+class="secondary">
 ↺ Restablecer
 </button>
 
 </div>
-
 
 </div>
 
@@ -633,12 +414,11 @@ class="secondary"
 <canvas
 id="fieldCanvas"
 width="900"
-height="620"
-></canvas>
+height="620">
+</canvas>
 
 
 <div class="info-grid">
-
 
 <div class="info">
 
@@ -647,7 +427,7 @@ Potencial de la sonda
 </strong>
 
 <div id="probeVoltage">
-V = 6.00 V
+V = 5.00 V
 </div>
 
 </div>
@@ -669,11 +449,11 @@ x = 0.060 m
 <div class="info">
 
 <strong>
-Campo
+Campo eléctrico
 </strong>
 
 <div id="electricField">
-E = 100 V/m
+E ≈ 83.3 V/m
 </div>
 
 </div>
@@ -691,7 +471,6 @@ Efectos de borde
 
 </div>
 
-
 </div>
 
 </div>
@@ -699,7 +478,7 @@ Efectos de borde
 
 
 <!-- ======================================================
-     GRAFICA
+     GRÁFICA
 ====================================================== -->
 
 <div class="card">
@@ -711,28 +490,64 @@ Efectos de borde
 <canvas
 id="graphCanvas"
 width="650"
-height="620"
-></canvas>
+height="620">
+</canvas>
 
 
 <div class="equation">
-
-\[
-V(x)=\frac{V_0}{d}x
-\]
-
+V(x) = (V₀ / d)x
 </div>
 
 
 <div class="equation">
+E = −ΔV / Δx
+</div>
 
-\[
-\vec E=-\nabla V
-\]
 
+<div class="equation">
+<strong>E = −∇V</strong>
 </div>
 
 </div>
+
+</div>
+
+
+
+<!-- ======================================================
+     EXPLICACIÓN
+====================================================== -->
+
+<div class="card">
+
+<h2>
+Interpretación del mapa
+</h2>
+
+<div class="physics-note">
+
+<strong>Importante:</strong>
+
+El valor de 10 V corresponde al potencial de la placa positiva.
+No significa que el campo eléctrico sea mayor en esa placa.
+
+El campo depende de cómo cambia el potencial con la posición:
+
+</div>
+
+<div class="equation">
+E = −ΔV / Δx
+</div>
+
+<p>
+
+Por eso, para construir las equipotenciales, se busca sucesivamente
+los potenciales de <strong>10, 8, 6, 4 y 2 V</strong>.
+
+Cada potencial encontrado en seis posiciones diferentes permite
+reconstruir experimentalmente una curva equipotencial.
+
+</p>
 
 </div>
 
@@ -749,9 +564,8 @@ V(x)=\frac{V_0}{d}x
 </h2>
 
 <p>
-
-Posiciones indicadas en la práctica:
-
+Esta tabla permite comparar el potencial teórico con el valor
+experimental obtenido por los estudiantes.
 </p>
 
 
@@ -762,15 +576,10 @@ Posiciones indicadas en la práctica:
 <tr>
 
 <th>n</th>
-
 <th>x (m)</th>
-
 <th>x (cm)</th>
-
 <th>V teórico (V)</th>
-
 <th>V experimental (V)</th>
-
 <th>Diferencia (%)</th>
 
 </tr>
@@ -778,9 +587,7 @@ Posiciones indicadas en la práctica:
 </thead>
 
 
-<tbody
-id="dataTable"
->
+<tbody id="dataTable">
 </tbody>
 
 </table>
@@ -802,14 +609,13 @@ id="dataTable"
 
 <p>
 
-Selecciona un potencial y luego haz clic sobre la cubeta para
-registrar los puntos experimentales encontrados con el voltímetro.
+Selecciona un potencial y haz clic sobre la cubeta para registrar
+los seis puntos encontrados experimentalmente.
 
 </p>
 
 
 <div class="point-controls">
-
 
 <span>
 Potencial seleccionado:
@@ -817,60 +623,52 @@ Potencial seleccionado:
 
 
 <button
-class="potentialButton"
-data-potential="10"
->
+class="potentialButton selected"
+data-potential="10">
 10 V
 </button>
 
 
 <button
 class="potentialButton"
-data-potential="8"
->
+data-potential="8">
 8 V
 </button>
 
 
 <button
 class="potentialButton"
-data-potential="6"
->
+data-potential="6">
 6 V
 </button>
 
 
 <button
 class="potentialButton"
-data-potential="4"
->
+data-potential="4">
 4 V
 </button>
 
 
 <button
 class="potentialButton"
-data-potential="2"
->
+data-potential="2">
 2 V
 </button>
 
 
 <span
 class="badge"
-id="selectedPotential"
->
+id="selectedPotential">
 10 V
 </span>
 
 
 <button
 id="clearPoints"
-class="red"
->
+class="red">
 Borrar puntos
 </button>
-
 
 </div>
 
@@ -878,9 +676,7 @@ Borrar puntos
 <p>
 
 Puntos registrados:
-<strong
-id="pointCount"
->
+<strong id="pointCount">
 0 / 30
 </strong>
 
@@ -890,8 +686,53 @@ id="pointCount"
 <canvas
 id="experimentalCanvas"
 width="900"
-height="500"
-></canvas>
+height="500">
+</canvas>
+
+
+<div class="legend">
+
+<div class="legend-item">
+<span
+class="legend-dot"
+style="background:#e63946">
+</span>
+10 V
+</div>
+
+<div class="legend-item">
+<span
+class="legend-dot"
+style="background:#f08c00">
+</span>
+8 V
+</div>
+
+<div class="legend-item">
+<span
+class="legend-dot"
+style="background:#17a673">
+</span>
+6 V
+</div>
+
+<div class="legend-item">
+<span
+class="legend-dot"
+style="background:#0b5cab">
+</span>
+4 V
+</div>
+
+<div class="legend-item">
+<span
+class="legend-dot"
+style="background:#7b2cbf">
+</span>
+2 V
+</div>
+
+</div>
 
 
 <table>
@@ -901,21 +742,15 @@ height="500"
 <tr>
 
 <th>Potencial</th>
-
 <th>Punto</th>
-
 <th>x (cm)</th>
-
 <th>y (cm)</th>
 
 </tr>
 
 </thead>
 
-
-<tbody
-id="experimentalTable"
->
+<tbody id="experimentalTable">
 </tbody>
 
 </table>
@@ -925,7 +760,7 @@ id="experimentalTable"
 
 
 <!-- ======================================================
-     EXPLICACIÓN FÍSICA
+     INTERPRETACIÓN FÍSICA
 ====================================================== -->
 
 <div class="card">
@@ -944,63 +779,43 @@ el campo eléctrico puede aproximarse como uniforme.
 
 
 <div class="equation">
-
-\[
-E\approx\frac{\Delta V}{d}
-\]
-
+E ≈ ΔV / d
 </div>
 
 
 <p>
 
-El potencial cambia aproximadamente de forma lineal con la
-distancia:
+En la región central de la cubeta, el potencial cambia
+aproximadamente de forma lineal:
 
 </p>
 
 
 <div class="equation">
-
-\[
-V(x)=\frac{V_0}{d}x
-\]
-
+V(x) = (V₀ / d)x
 </div>
 
 
 <p>
 
-Sin embargo, debido a que los electrodos tienen una longitud
-finita, cerca de sus extremos aparecen los llamados
-<strong>efectos de borde</strong>.
-
-</p>
-
-
-<p>
-
-Por ello, las superficies equipotenciales pueden dejar de ser
-perfectamente rectas y comenzar a curvarse cerca de los extremos.
+Sin embargo, los electrodos utilizados en el laboratorio tienen
+una longitud finita. Cerca de sus extremos las líneas de campo
+se curvan y, como consecuencia, las equipotenciales también
+pueden curvarse.
 
 </p>
 
 
 <div class="equation">
-
-\[
-\boxed{
-\vec E=-\nabla V
-}
-\]
-
+<strong>E = −∇V</strong>
 </div>
 
 
 <p>
 
 Las líneas de campo eléctrico son perpendiculares a las
-superficies equipotenciales.
+superficies equipotenciales y apuntan desde el mayor potencial
+hacia el menor potencial.
 
 </p>
 
@@ -1013,46 +828,47 @@ superficies equipotenciales.
 
 <script>
 
-
 /* ============================================================
-   VARIABLES PRINCIPALES
+   CONSTANTES DEL EXPERIMENTO
 ============================================================ */
 
+const APPLIED_VOLTAGE = 10;
+
+const TANK_HEIGHT_CM = 10;
+
+const PLATE_LENGTH_RATIO = 0.78;
+
+
+/* ============================================================
+   CANVAS
+============================================================ */
 
 const fieldCanvas =
-document.getElementById(
-"fieldCanvas"
-);
+document.getElementById("fieldCanvas");
 
 const fctx =
-fieldCanvas.getContext(
-"2d"
-);
+fieldCanvas.getContext("2d");
 
 
 const graphCanvas =
-document.getElementById(
-"graphCanvas"
-);
+document.getElementById("graphCanvas");
 
 const gctx =
-graphCanvas.getContext(
-"2d"
-);
+graphCanvas.getContext("2d");
 
 
 const experimentalCanvas =
-document.getElementById(
-"experimentalCanvas"
-);
+document.getElementById("experimentalCanvas");
 
 const ectx =
-experimentalCanvas.getContext(
-"2d"
-);
+experimentalCanvas.getContext("2d");
 
 
-let voltage = 12;
+/* ============================================================
+   VARIABLES
+============================================================ */
+
+let voltage = APPLIED_VOLTAGE;
 
 let distance = 12;
 
@@ -1066,24 +882,20 @@ let animationId = null;
 
 
 /*
-Matriz numérica del potencial
+Malla numérica
 */
 
+const NX = 121;
+const NY = 81;
+
 let potentialGrid = [];
-
-let NX = 90;
-
-let NY = 55;
 
 
 /*
 Puntos experimentales
 
-10 V
-8 V
-6 V
-4 V
-2 V
+Cada potencial tendrá máximo
+6 puntos.
 */
 
 let experimentalPoints = {
@@ -1101,79 +913,57 @@ let selectedPotential = 10;
 
 
 /* ============================================================
-   ELEMENTOS HTML
+   ELEMENTOS
 ============================================================ */
 
-
-const voltageSlider =
-document.getElementById(
-"voltage"
-);
-
 const distanceSlider =
-document.getElementById(
-"distance"
-);
+document.getElementById("distance");
 
 const positionSlider =
-document.getElementById(
-"position"
-);
-positionSlider.addEventListener(
-    "input",
-    ()=>{
-        position =
-        parseFloat(
-            positionSlider.value
-        );
+document.getElementById("position");
 
-        document
-        .getElementById(
-            "positionValue"
-        )
-        .textContent =
-        position.toFixed(1)
-        + " cm";
-
-        drawField();
-        drawGraph();
-    }
-);
 
 /* ============================================================
    EVENTOS
 ============================================================ */
 
-
-voltageSlider
-.addEventListener(
+distanceSlider.addEventListener(
 "input",
 update
 );
 
 
-distanceSlider
-.addEventListener(
+positionSlider.addEventListener(
 "input",
-update
-);
+()=>{
+
+    position =
+    parseFloat(
+        positionSlider.value
+    );
+
+    document
+    .getElementById("positionValue")
+    .textContent =
+    position.toFixed(1)+" cm";
+
+    drawField();
+    drawGraph();
+
+});
 
 
 document
-.getElementById(
-"idealButton"
-)
+.getElementById("idealButton")
 .addEventListener(
 "click",
 ()=>{
 
-    mode="ideal";
+    mode = "ideal";
 
     document
-    .getElementById(
-    "modeText"
-    )
-    .textContent=
+    .getElementById("modeText")
+    .textContent =
     "Modelo ideal";
 
     update();
@@ -1182,23 +972,17 @@ document
 
 
 document
-.getElementById(
-"edgeButton"
-)
+.getElementById("edgeButton")
 .addEventListener(
 "click",
 ()=>{
 
-    mode="edge";
+    mode = "edge";
 
     document
-    .getElementById(
-    "modeText"
-    )
-    .textContent=
+    .getElementById("modeText")
+    .textContent =
     "Efectos de borde";
-
-    solvePotential();
 
     update();
 
@@ -1206,9 +990,7 @@ document
 
 
 document
-.getElementById(
-"animateButton"
-)
+.getElementById("animateButton")
 .addEventListener(
 "click",
 toggleAnimation
@@ -1216,9 +998,7 @@ toggleAnimation
 
 
 document
-.getElementById(
-"resetButton"
-)
+.getElementById("resetButton")
 .addEventListener(
 "click",
 resetSimulation
@@ -1226,9 +1006,7 @@ resetSimulation
 
 
 document
-.getElementById(
-"clearPoints"
-)
+.getElementById("clearPoints")
 .addEventListener(
 "click",
 ()=>{
@@ -1251,27 +1029,41 @@ document
 
 
 document
-.querySelectorAll(
-".potentialButton"
-)
-.forEach(button=>{
+.querySelectorAll(".potentialButton")
+.forEach(
+button=>{
 
     button.addEventListener(
     "click",
     ()=>{
 
         selectedPotential =
-        parseFloat(
-        button.dataset.potential
+        parseInt(
+            button.dataset.potential
         );
 
         document
         .getElementById(
-        "selectedPotential"
+            "selectedPotential"
         )
-        .textContent=
-        selectedPotential+
-        " V";
+        .textContent =
+        selectedPotential+" V";
+
+
+        document
+        .querySelectorAll(
+            ".potentialButton"
+        )
+        .forEach(
+            b=>b.classList.remove(
+                "selected"
+            )
+        );
+
+
+        button.classList.add(
+            "selected"
+        );
 
     });
 
@@ -1279,65 +1071,44 @@ document
 
 
 /* ============================================================
-   CAMBIO DE CONFIGURACIÓN
+   ACTUALIZAR
 ============================================================ */
-
 
 function update(){
 
-    voltage =
-    parseFloat(
-    voltageSlider.value
-    );
-
-
     distance =
     parseFloat(
-    distanceSlider.value
+        distanceSlider.value
     );
 
 
-    if(position>distance){
+    if(position > distance){
 
-        position=distance;
+        position = distance;
 
     }
 
 
-    positionSlider.max = distance;
+    positionSlider.max =
+    distance;
 
-if(position > distance){
-    position = distance;
-    positionSlider.value = distance;
-}
-
-positionSlider.value = position;
-
-document
-.getElementById("positionValue")
-.textContent =
-position.toFixed(1) + " cm";
-
-    
-    document
-    .getElementById(
-    "voltageValue"
-    )
-    .textContent=
-    voltage.toFixed(1)
-    +" V";
+    positionSlider.value =
+    position;
 
 
     document
-    .getElementById(
-    "distanceValue"
-    )
-    .textContent=
-    distance.toFixed(1)
-    +" cm";
+    .getElementById("positionValue")
+    .textContent =
+    position.toFixed(1)+" cm";
 
 
-    if(mode==="edge"){
+    document
+    .getElementById("distanceValue")
+    .textContent =
+    distance.toFixed(1)+" cm";
+
+
+    if(mode === "edge"){
 
         solvePotential();
 
@@ -1356,42 +1127,60 @@ position.toFixed(1) + " cm";
 
 
 /* ============================================================
-   SOLUCIÓN NUMÉRICA DE LAPLACE
+   SOLUCIÓN DE LAPLACE
 ============================================================ */
 
-
 /*
-Este cálculo genera una aproximación de:
+Ahora las placas NO ocupan toda la altura.
 
-∇²V = 0
+Son placas verticales FINITAS.
 
-para dos electrodos finitos.
+La región exterior se considera aislada:
 
-Esto permite representar los efectos de borde.
+∂V/∂n = 0
+
+y las placas tienen:
+
+izquierda = 0 V
+derecha = 10 V
 */
-
 
 function solvePotential(){
 
-    potentialGrid=[];
+    potentialGrid = [];
+
+    const plateCenter =
+    (NY-1)/2;
+
+    const halfPlate =
+    ((NY-1) *
+    PLATE_LENGTH_RATIO)/2;
 
 
-    for(
-        let i=0;
-        i<NX;
-        i++
-    ){
+    const plateMin =
+    Math.round(
+        plateCenter-halfPlate
+    );
+
+
+    const plateMax =
+    Math.round(
+        plateCenter+halfPlate
+    );
+
+
+    /*
+    Inicialización.
+    */
+
+    for(let i=0;i<NX;i++){
 
         potentialGrid[i]=[];
 
-        for(
-            let j=0;
-            j<NY;
-            j++
-        ){
+        for(let j=0;j<NY;j++){
 
-            potentialGrid[i][j]=
-            voltage*
+            potentialGrid[i][j] =
+            APPLIED_VOLTAGE *
             i/(NX-1);
 
         }
@@ -1400,103 +1189,114 @@ function solvePotential(){
 
 
     /*
-    Iteración de Jacobi
+    Iteración de Gauss-Seidel.
     */
-
 
     for(
         let iteration=0;
-        iteration<500;
+        iteration<1200;
         iteration++
     ){
 
-        let newGrid=[];
+        for(let i=0;i<NX;i++){
 
-
-        for(
-            let i=0;
-            i<NX;
-            i++
-        ){
-
-            newGrid[i]=[];
-
-            for(
-                let j=0;
-                j<NY;
-                j++
-            ){
+            for(let j=0;j<NY;j++){
 
                 /*
-                Electrodos verticales.
-                El efecto de borde aparece
-                al considerar que las placas
-                tienen longitud finita.
+                Placa izquierda.
+                */
+
+                if(
+                    i===0 &&
+                    j>=plateMin &&
+                    j<=plateMax
+                ){
+
+                    potentialGrid[i][j]=0;
+
+                    continue;
+
+                }
+
+
+                /*
+                Placa derecha.
+                */
+
+                if(
+                    i===NX-1 &&
+                    j>=plateMin &&
+                    j<=plateMax
+                ){
+
+                    potentialGrid[i][j]=
+                    APPLIED_VOLTAGE;
+
+                    continue;
+
+                }
+
+
+                /*
+                Bordes externos:
+                condición de Neumann.
                 */
 
                 if(i===0){
 
-                    newGrid[i][j]=0;
+                    potentialGrid[i][j] =
+                    potentialGrid[i+1][j];
+
+                    continue;
 
                 }
 
-                else if(i===NX-1){
 
-                    newGrid[i][j]=voltage;
+                if(i===NX-1){
 
-                }
+                    potentialGrid[i][j] =
+                    potentialGrid[i-1][j];
 
-                else if(
-                    j===0 ||
-                    j===NY-1
-                ){
-
-                    /*
-                    Condición aproximada
-                    de simetría/aislamiento
-                    */
-
-                    let jm =
-                    j===0
-                    ? 1
-                    : NY-2;
-
-
-                    newGrid[i][j]=
-                    (
-                        potentialGrid[i-1][j]
-                        +
-                        potentialGrid[i+1][j]
-                        +
-                        potentialGrid[i][jm]
-                        +
-                        potentialGrid[i][j]
-                    )/4;
+                    continue;
 
                 }
 
-                else{
 
-                    newGrid[i][j]=
-                    (
-                        potentialGrid[i-1][j]
-                        +
-                        potentialGrid[i+1][j]
-                        +
-                        potentialGrid[i][j-1]
-                        +
-                        potentialGrid[i][j+1]
-                    )/4;
+                if(j===0){
+
+                    potentialGrid[i][j] =
+                    potentialGrid[i][j+1];
+
+                    continue;
 
                 }
+
+
+                if(j===NY-1){
+
+                    potentialGrid[i][j] =
+                    potentialGrid[i][j-1];
+
+                    continue;
+
+                }
+
+
+                /*
+                Ecuación de Laplace.
+                */
+
+                potentialGrid[i][j] =
+                (
+                    potentialGrid[i-1][j] +
+                    potentialGrid[i+1][j] +
+                    potentialGrid[i][j-1] +
+                    potentialGrid[i][j+1]
+                )/4;
 
             }
 
         }
-
-
-        potentialGrid=
-        newGrid;
 
     }
 
@@ -1507,11 +1307,10 @@ function solvePotential(){
    POTENCIAL IDEAL
 ============================================================ */
 
-
 function idealPotential(x){
 
-    return voltage*
-    x/
+    return APPLIED_VOLTAGE *
+    x /
     (distance/100);
 
 }
@@ -1521,15 +1320,12 @@ function idealPotential(x){
    POTENCIAL NUMÉRICO
 ============================================================ */
 
-
 function numericalPotential(
 x,
 y
 ){
 
-    if(
-        !potentialGrid.length
-    ){
+    if(!potentialGrid.length){
 
         solvePotential();
 
@@ -1537,29 +1333,37 @@ y
 
 
     let i =
-    Math.max(
-        0,
-        Math.min(
-            NX-1,
-            Math.round(
-                x*
-                (NX-1)/
-                (distance/100)
-            )
-        )
+    Math.round(
+        x/
+        (distance/100)*
+        (NX-1)
     );
 
 
     let j =
+    Math.round(
+        y/
+        (TANK_HEIGHT_CM/100)*
+        (NY-1)
+    );
+
+
+    i =
+    Math.max(
+        0,
+        Math.min(
+            NX-1,
+            i
+        )
+    );
+
+
+    j =
     Math.max(
         0,
         Math.min(
             NY-1,
-            Math.round(
-                y*
-                (NY-1)/
-                0.10
-            )
+            j
         )
     );
 
@@ -1573,13 +1377,12 @@ y
    POTENCIAL
 ============================================================ */
 
-
 function potential(
 x,
 y=0.05
 ){
 
-    if(mode==="ideal"){
+    if(mode === "ideal"){
 
         return idealPotential(x);
 
@@ -1597,39 +1400,43 @@ y=0.05
    CAMPO
 ============================================================ */
 
-
 function electricFieldAt(
 x,
 y=0.05
 ){
 
-    const dx=0.0005;
+    const dx = 0.0005;
 
-
-    const v1=
-    potential(
+    const x1 =
     Math.max(
         0,
         x-dx
-    ),
-    y
     );
 
-
-    const v2=
-    potential(
+    const x2 =
     Math.min(
         distance/100,
         x+dx
-    ),
-    y
+    );
+
+
+    const v1 =
+    potential(
+        x1,
+        y
+    );
+
+
+    const v2 =
+    potential(
+        x2,
+        y
     );
 
 
     return -(
         v2-v1
-    )/
-    (2*dx);
+    )/(x2-x1);
 
 }
 
@@ -1638,13 +1445,12 @@ y=0.05
    DIBUJAR CAMPO
 ============================================================ */
 
-
 function drawField(){
 
-    const W=
+    const W =
     fieldCanvas.width;
 
-    const H=
+    const H =
     fieldCanvas.height;
 
 
@@ -1656,7 +1462,7 @@ function drawField(){
     );
 
 
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#eaf5f8";
 
     fctx.fillRect(
@@ -1667,14 +1473,14 @@ function drawField(){
     );
 
 
-    const left=105;
+    const left = 105;
 
-    const right=
+    const right =
     W-105;
 
-    const top=65;
+    const top = 70;
 
-    const bottom=
+    const bottom =
     H-70;
 
 
@@ -1682,11 +1488,10 @@ function drawField(){
     Cubeta
     */
 
-
-    fctx.strokeStyle=
+    fctx.strokeStyle =
     "#718899";
 
-    fctx.lineWidth=3;
+    fctx.lineWidth = 3;
 
     fctx.strokeRect(
         left,
@@ -1697,93 +1502,93 @@ function drawField(){
 
 
     /*
-    Electrodos
+    Longitud física de los electrodos.
     */
 
+    const plateHeight =
+    (bottom-top)*
+    PLATE_LENGTH_RATIO;
 
-    fctx.fillStyle=
+    const plateTop =
+    (top+bottom-
+    plateHeight)/2;
+
+
+    /*
+    Electrodos.
+    */
+
+    fctx.fillStyle =
     "#697782";
 
 
     fctx.fillRect(
         left-12,
-        top,
+        plateTop,
         12,
-        bottom-top
+        plateHeight
     );
 
 
     fctx.fillRect(
         right,
-        top,
+        plateTop,
         12,
-        bottom-top
+        plateHeight
     );
 
 
     /*
-    Etiquetas
+    Etiquetas.
     */
 
-
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#062d5c";
 
-    fctx.font=
+    fctx.font =
     "bold 18px Arial";
 
-    fctx.textAlign=
+    fctx.textAlign =
     "center";
 
 
     fctx.fillText(
-        "0 V / TIERRA",
+        "0 V",
         left,
-        38
+        plateTop-12
     );
 
 
     fctx.fillText(
-        "+"+
-        voltage.toFixed(0)+
-        " V",
+        "+10 V",
         right,
-        38
+        plateTop-12
     );
 
 
     /*
-    Equipotenciales
+    Equipotenciales.
     */
 
-
-    const equipotentials=
-    [2,4,6,8,10];
-
-
-    equipotentials
+    [2,4,6,8]
     .forEach(
-    V=>{
+        V=>{
 
-        if(V>=voltage)
-            return;
+            drawEquipotential(
+                V,
+                left,
+                right,
+                top,
+                bottom
+            );
 
-
-        drawEquipotential(
-            V,
-            left,
-            right,
-            top,
-            bottom
-        );
-
-    });
+        }
+    );
 
 
     /*
-    Líneas de campo
+    Líneas de campo.
     */
-
 
     drawFieldLines(
         left,
@@ -1794,25 +1599,22 @@ function drawField(){
 
 
     /*
-    Sonda
+    Sonda.
     */
 
-
-    const px=
+    const px =
     left+
     (
-        position/
-        distance
+        position/distance
     )*
     (
         right-left
     );
 
 
-    const py=
+    const py =
     (
-        top+
-        bottom
+        top+bottom
     )/2;
 
 
@@ -1827,24 +1629,24 @@ function drawField(){
     );
 
 
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#e63946";
 
     fctx.fill();
 
 
-    fctx.strokeStyle=
+    fctx.strokeStyle =
     "white";
 
-    fctx.lineWidth=3;
+    fctx.lineWidth = 3;
 
     fctx.stroke();
 
 
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#243447";
 
-    fctx.font=
+    fctx.font =
     "bold 15px Arial";
 
 
@@ -1856,29 +1658,28 @@ function drawField(){
 
 
     /*
-    Información
+    Información.
     */
 
-
-    const V=
+    const V =
     potential(
         position/100,
-        0.05
+        TANK_HEIGHT_CM/200
     );
 
 
-    const E=
+    const E =
     electricFieldAt(
         position/100,
-        0.05
+        TANK_HEIGHT_CM/200
     );
 
 
     document
     .getElementById(
-    "probeVoltage"
+        "probeVoltage"
     )
-    .textContent=
+    .textContent =
     "V = "+
     V.toFixed(2)+
     " V";
@@ -1886,9 +1687,9 @@ function drawField(){
 
     document
     .getElementById(
-    "probePosition"
+        "probePosition"
     )
-    .textContent=
+    .textContent =
     "x = "+
     (position/100)
     .toFixed(3)+
@@ -1897,9 +1698,9 @@ function drawField(){
 
     document
     .getElementById(
-    "electricField"
+        "electricField"
     )
-    .textContent=
+    .textContent =
     "E ≈ "+
     Math.abs(E)
     .toFixed(1)+
@@ -1912,7 +1713,6 @@ function drawField(){
    EQUIPOTENCIAL
 ============================================================ */
 
-
 function drawEquipotential(
 V,
 left,
@@ -1923,8 +1723,7 @@ bottom
 
     fctx.beginPath();
 
-
-    let started=false;
+    let started = false;
 
 
     for(
@@ -1933,91 +1732,65 @@ bottom
         py+=3
     ){
 
-        const yNorm=
-        (
-            py-top
-        )/
-        (
-            bottom-top
-        );
+        const yNorm =
+        (py-top)/
+        (bottom-top);
 
 
-        let xRatio;
+        const y =
+        yNorm*
+        TANK_HEIGHT_CM/100;
 
 
-        if(mode==="ideal"){
+        let bestX = 0;
 
-            xRatio=
-            V/
-            voltage;
-
-        }
-
-        else{
-
-            /*
-            Buscamos aproximadamente
-            el lugar donde V(x,y)=V
-            */
+        let bestError =
+        Infinity;
 
 
-            let bestX=0;
+        for(
+            let k=0;
+            k<=160;
+            k++
+        ){
 
-            let bestError=
-            Infinity;
-
-
-            for(
-                let k=0;
-                k<=100;
-                k++
-            ){
-
-                const xRatio=
-                k/100;
+            const xRatio =
+            k/160;
 
 
-                const x=
-                xRatio*
-                distance/
-                100;
+            const x =
+            xRatio*
+            distance/100;
 
 
-                const currentV=
-                numericalPotential(
-                    x,
-                    yNorm*0.10
-                );
+            const currentV =
+            potential(
+                x,
+                y
+            );
 
 
-                const error=
-                Math.abs(
-                    currentV-V
-                );
+            const error =
+            Math.abs(
+                currentV-V
+            );
 
 
-                if(error<bestError){
+            if(error<bestError){
 
-                    bestError=error;
+                bestError=error;
 
-                    bestX=xRatio;
-
-                }
+                bestX=xRatio;
 
             }
 
-
-            xRatio=bestX;
-
         }
 
 
-        const px=
+        const px =
         left+
-        xRatio*
-        (
-            right-left
-        );
+        bestX*
+        (right-left);
 
 
         if(!started){
@@ -2030,7 +1803,6 @@ bottom
             started=true;
 
         }
-
         else{
 
             fctx.lineTo(
@@ -2043,13 +1815,13 @@ bottom
     }
 
 
-    fctx.strokeStyle=
+    fctx.strokeStyle =
     "#1479c9";
 
-    fctx.lineWidth=3;
+    fctx.lineWidth = 3;
 
     fctx.setLineDash(
-    [9,6]
+        [9,6]
     );
 
     fctx.stroke();
@@ -2058,34 +1830,33 @@ bottom
 
 
     /*
-    Etiqueta
+    Etiqueta.
     */
 
-
-    const ratio=
-    V/
-    voltage;
-
-
-    const labelX=
-    left+
-    ratio*
-    (
-        right-left
-    );
-
-
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#062d5c";
 
-    fctx.font=
-    "bold 15px Arial";
+    fctx.font =
+    "bold 14px Arial";
+
+    fctx.textAlign =
+    "left";
+
+
+    const ratio =
+    V/APPLIED_VOLTAGE;
+
+
+    const labelX =
+    left+
+    ratio*
+    (right-left);
 
 
     fctx.fillText(
         V+" V",
         labelX+6,
-        top+22
+        top+25
     );
 
 }
@@ -2095,14 +1866,6 @@ bottom
    LÍNEAS DE CAMPO
 ============================================================ */
 
-
-/*
-Para mostrar el concepto visualmente
-usamos líneas aproximadamente perpendiculares
-a las equipotenciales.
-*/
-
-
 function drawFieldLines(
 left,
 right,
@@ -2110,7 +1873,24 @@ top,
 bottom
 ){
 
-    const N=9;
+    /*
+    Las líneas se muestran principalmente
+    dentro de la región entre las placas.
+    */
+
+    const plateHeight =
+    (bottom-top)*
+    PLATE_LENGTH_RATIO;
+
+    const plateTop =
+    (top+bottom-
+    plateHeight)/2;
+
+    const plateBottom =
+    plateTop+plateHeight;
+
+
+    const N = 8;
 
 
     for(
@@ -2119,60 +1899,53 @@ bottom
         n++
     ){
 
-        const y=
-        top+
+        const y =
+        plateTop+
         n*
-        (
-            bottom-top
-        )/
+        plateHeight/
         (N+1);
 
 
+        /*
+        Línea central aproximadamente
+        horizontal.
+        */
+
         fctx.beginPath();
 
-
         fctx.moveTo(
-            right-5,
+            left,
             y
         );
-
 
         fctx.lineTo(
-            left+5,
+            right,
             y
         );
 
 
-        fctx.strokeStyle=
+        fctx.strokeStyle =
         "#e23b3b";
 
-        fctx.lineWidth=1.8;
+        fctx.lineWidth = 1.7;
 
         fctx.stroke();
 
 
         /*
-        Flechas indicando:
-
-        +12 V  --->  0 V
-
+        Flechas: de +10 V hacia 0 V.
         */
 
-
         for(
-            let x=
-            right-55;
-
-            x>
-            left+45;
-
-            x-=90
+            let x=right-45;
+            x>left+45;
+            x-=100
         ){
 
             drawArrow(
                 x,
                 y,
-                x-22,
+                x-25,
                 y
             );
 
@@ -2187,7 +1960,6 @@ bottom
    FLECHA
 ============================================================ */
 
-
 function drawArrow(
 x1,
 y1,
@@ -2195,20 +1967,20 @@ x2,
 y2
 ){
 
-    const angle=
+    const angle =
     Math.atan2(
         y2-y1,
         x2-x1
     );
 
 
-    fctx.strokeStyle=
+    fctx.strokeStyle =
     "#e23b3b";
 
-    fctx.fillStyle=
+    fctx.fillStyle =
     "#e23b3b";
 
-    fctx.lineWidth=2;
+    fctx.lineWidth = 2;
 
 
     fctx.beginPath();
@@ -2236,13 +2008,11 @@ y2
 
     fctx.lineTo(
         x2-
-        8*
-        Math.cos(
+        8*Math.cos(
             angle-.5
         ),
         y2-
-        8*
-        Math.sin(
+        8*Math.sin(
             angle-.5
         )
     );
@@ -2250,13 +2020,11 @@ y2
 
     fctx.lineTo(
         x2-
-        8*
-        Math.cos(
+        8*Math.cos(
             angle+.5
         ),
         y2-
-        8*
-        Math.sin(
+        8*Math.sin(
             angle+.5
         )
     );
@@ -2273,13 +2041,12 @@ y2
    GRÁFICA V(x)
 ============================================================ */
 
-
 function drawGraph(){
 
-    const W=
+    const W =
     graphCanvas.width;
 
-    const H=
+    const H =
     graphCanvas.height;
 
 
@@ -2291,28 +2058,20 @@ function drawGraph(){
     );
 
 
-    const ml=75;
-
-    const mr=30;
-
-    const mt=40;
-
-    const mb=60;
+    const ml = 75;
+    const mr = 30;
+    const mt = 40;
+    const mb = 60;
 
 
-    const pw=
+    const pw =
     W-ml-mr;
 
-    const ph=
+    const ph =
     H-mt-mb;
 
 
-    /*
-    Fondo
-    */
-
-
-    gctx.fillStyle=
+    gctx.fillStyle =
     "#ffffff";
 
     gctx.fillRect(
@@ -2324,14 +2083,13 @@ function drawGraph(){
 
 
     /*
-    Rejilla
+    Rejilla.
     */
 
-
-    gctx.strokeStyle=
+    gctx.strokeStyle =
     "#e5ebef";
 
-    gctx.lineWidth=1;
+    gctx.lineWidth = 1;
 
 
     for(
@@ -2340,11 +2098,9 @@ function drawGraph(){
         i++
     ){
 
-        const x=
+        const x =
         ml+
-        i*
-        pw/
-        6;
+        i*pw/6;
 
 
         gctx.beginPath();
@@ -2366,15 +2122,13 @@ function drawGraph(){
 
     for(
         let i=0;
-        i<=6;
+        i<=5;
         i++
     ){
 
-        const y=
+        const y =
         mt+
-        i*
-        ph/
-        6;
+        i*ph/5;
 
 
         gctx.beginPath();
@@ -2395,14 +2149,13 @@ function drawGraph(){
 
 
     /*
-    Ejes
+    Ejes.
     */
 
-
-    gctx.strokeStyle=
+    gctx.strokeStyle =
     "#243447";
 
-    gctx.lineWidth=2;
+    gctx.lineWidth = 2;
 
 
     gctx.beginPath();
@@ -2426,91 +2179,89 @@ function drawGraph(){
 
 
     /*
-    Curva
+    Curva.
     */
-
 
     gctx.beginPath();
 
 
     for(
         let i=0;
-        i<=200;
+        i<=250;
         i++
     ){
 
-        const x=
-        i/200*
-        distance/
-        100;
+        const x =
+        i/250*
+        distance/100;
 
 
-        const V=
+        const V =
         potential(
             x,
-            0.05
+            TANK_HEIGHT_CM/200
         );
 
 
-        const px=
+        const px =
         ml+
-        i/200*
-        pw;
+        i/250*pw;
 
 
-        const py=
+        const py =
         H-mb-
-        V/
-        voltage*
+        V/APPLIED_VOLTAGE*
         ph;
 
 
-        if(i===0)
+        if(i===0){
+
             gctx.moveTo(
                 px,
                 py
             );
 
-        else
+        }
+        else{
+
             gctx.lineTo(
                 px,
                 py
             );
 
+        }
+
     }
 
 
-    gctx.strokeStyle=
+    gctx.strokeStyle =
     "#0b5cab";
 
-    gctx.lineWidth=4;
+    gctx.lineWidth = 4;
 
     gctx.stroke();
 
 
     /*
-    Punto actual
+    Punto de la sonda.
     */
 
-
-    const px=
+    const px =
     ml+
-    position/
-    distance*
+    position/distance*
     pw;
 
 
-    const V=
+    const V =
     potential(
         position/100,
-        0.05
+        TANK_HEIGHT_CM/200
     );
 
 
-    const py=
+    const py =
     H-mb-
-    V/
-    voltage*
+    V/APPLIED_VOLTAGE*
     ph;
 
 
@@ -2525,24 +2276,23 @@ function drawGraph(){
     );
 
 
-    gctx.fillStyle=
+    gctx.fillStyle =
     "#e63946";
 
     gctx.fill();
 
 
     /*
-    Texto
+    Etiquetas.
     */
 
-
-    gctx.fillStyle=
+    gctx.fillStyle =
     "#243447";
 
-    gctx.font=
+    gctx.font =
     "14px Arial";
 
-    gctx.textAlign=
+    gctx.textAlign =
     "center";
 
 
@@ -2555,24 +2305,20 @@ function drawGraph(){
 
     gctx.save();
 
-
     gctx.translate(
         20,
         mt+ph/2
     );
 
-
     gctx.rotate(
         -Math.PI/2
     );
-
 
     gctx.fillText(
         "V (V)",
         0,
         0
     );
-
 
     gctx.restore();
 
@@ -2583,10 +2329,9 @@ function drawGraph(){
    TABLA 5.2
 ============================================================ */
 
-
 function updateTable(){
 
-    const positions=[
+    const positions = [
         0.010,
         0.030,
         0.050,
@@ -2596,32 +2341,32 @@ function updateTable(){
     ];
 
 
-    const table=
+    const table =
     document.getElementById(
-    "dataTable"
+        "dataTable"
     );
 
 
-    table.innerHTML="";
+    table.innerHTML = "";
 
 
     positions.forEach(
     (x,i)=>{
 
-        const V=
+        const V =
         potential(
             x,
-            0.05
+            TANK_HEIGHT_CM/200
         );
 
 
-        const row=
+        const row =
         document.createElement(
-        "tr"
+            "tr"
         );
 
 
-        row.innerHTML=`
+        row.innerHTML = `
 
         <td>${i+1}</td>
 
@@ -2637,8 +2382,7 @@ function updateTable(){
         step="0.01"
         class="experimental"
         data-x="${x}"
-        placeholder="—"
-        >
+        placeholder="—">
         </td>
 
         <td>—</td>
@@ -2647,7 +2391,7 @@ function updateTable(){
 
 
         table.appendChild(
-        row
+            row
         );
 
     });
@@ -2655,14 +2399,14 @@ function updateTable(){
 
     document
     .querySelectorAll(
-    ".experimental"
+        ".experimental"
     )
     .forEach(
     input=>{
 
         input.addEventListener(
-        "input",
-        calculateErrors
+            "input",
+            calculateErrors
         );
 
     });
@@ -2674,60 +2418,62 @@ function updateTable(){
    ERROR
 ============================================================ */
 
-
 function calculateErrors(){
 
     document
     .querySelectorAll(
-    ".experimental"
+        ".experimental"
     )
     .forEach(
     input=>{
 
-        const value=
+        const value =
         parseFloat(
-        input.value
+            input.value
         );
 
 
-        const x=
+        const x =
         parseFloat(
-        input.dataset.x
+            input.dataset.x
         );
 
 
-        const theoretical=
+        const theoretical =
         potential(
             x,
-            0.05
+            TANK_HEIGHT_CM/200
         );
 
 
-        const cell=
+        const cell =
         input.parentElement
         .nextElementSibling;
 
 
         if(
             !isNaN(value)
-            &&
-            theoretical!==0
         ){
 
-            const error=
+            const error =
             Math.abs(
                 (
                     value-
                     theoretical
                 )/
                 theoretical
-            )*
-            100;
+            )*100;
 
 
-            cell.textContent=
-            error.toFixed(2)
-            +" %";
+            cell.textContent =
+            error.toFixed(2)+
+            " %";
+
+        }
+        else{
+
+            cell.textContent =
+            "—";
 
         }
 
@@ -2737,9 +2483,8 @@ function calculateErrors(){
 
 
 /* ============================================================
-   REGISTRO DE PUNTOS EXPERIMENTALES
+   REGISTRO DE PUNTOS
 ============================================================ */
-
 
 experimentalCanvas
 .addEventListener(
@@ -2753,9 +2498,9 @@ function(event){
     ){
 
         alert(
-        "Ya tienes 6 puntos para "+
-        selectedPotential+
-        " V."
+            "Ya tienes 6 puntos para "+
+            selectedPotential+
+            " V."
         );
 
         return;
@@ -2763,50 +2508,43 @@ function(event){
     }
 
 
-    const rect=
+    const rect =
     experimentalCanvas
     .getBoundingClientRect();
 
 
-    const scaleX=
+    const scaleX =
     experimentalCanvas.width/
     rect.width;
 
 
-    const scaleY=
+    const scaleY =
     experimentalCanvas.height/
     rect.height;
 
 
-    const px=
+    const px =
     (
         event.clientX-
         rect.left
-    )*
-    scaleX;
+    )*scaleX;
 
 
-    const py=
+    const py =
     (
         event.clientY-
         rect.top
-    )*
-    scaleY;
+    )*scaleY;
 
 
-    /*
-    Región útil de la cubeta
-    */
+    const left = 90;
 
-
-    const left=90;
-
-    const right=
+    const right =
     experimentalCanvas.width-90;
 
-    const top=50;
+    const top = 50;
 
-    const bottom=
+    const bottom =
     experimentalCanvas.height-55;
 
 
@@ -2823,12 +2561,10 @@ function(event){
 
 
     /*
-    Conversión de píxeles
-    a centímetros
+    Conversión a cm.
     */
 
-
-    const x=
+    const x =
     (
         px-left
     )/
@@ -2838,14 +2574,14 @@ function(event){
     distance;
 
 
-    const y=
+    const y =
     (
         bottom-py
     )/
     (
         bottom-top
     )*
-    10;
+    TANK_HEIGHT_CM;
 
 
     experimentalPoints[
@@ -2853,7 +2589,6 @@ function(event){
     ].push({
 
         x:x,
-
         y:y
 
     });
@@ -2870,13 +2605,12 @@ function(event){
    MAPA EXPERIMENTAL
 ============================================================ */
 
-
 function drawExperimental(){
 
-    const W=
+    const W =
     experimentalCanvas.width;
 
-    const H=
+    const H =
     experimentalCanvas.height;
 
 
@@ -2888,7 +2622,7 @@ function drawExperimental(){
     );
 
 
-    ectx.fillStyle=
+    ectx.fillStyle =
     "#eaf5f8";
 
     ectx.fillRect(
@@ -2899,26 +2633,25 @@ function drawExperimental(){
     );
 
 
-    const left=90;
+    const left = 90;
 
-    const right=
+    const right =
     W-90;
 
-    const top=50;
+    const top = 50;
 
-    const bottom=
+    const bottom =
     H-55;
 
 
     /*
-    Cubeta
+    Cubeta.
     */
 
-
-    ectx.strokeStyle=
+    ectx.strokeStyle =
     "#718899";
 
-    ectx.lineWidth=3;
+    ectx.lineWidth = 3;
 
     ectx.strokeRect(
         left,
@@ -2929,67 +2662,71 @@ function drawExperimental(){
 
 
     /*
-    Electrodos
+    Electrodos finitos.
     */
 
+    const plateHeight =
+    (bottom-top)*
+    PLATE_LENGTH_RATIO;
 
-    ectx.fillStyle=
+    const plateTop =
+    (top+bottom-
+    plateHeight)/2;
+
+
+    ectx.fillStyle =
     "#697782";
 
 
     ectx.fillRect(
         left-10,
-        top,
+        plateTop,
         10,
-        bottom-top
+        plateHeight
     );
 
 
     ectx.fillRect(
         right,
-        top,
+        plateTop,
         10,
-        bottom-top
+        plateHeight
     );
 
 
     /*
-    Etiquetas
+    Etiquetas.
     */
 
-
-    ectx.fillStyle=
+    ectx.fillStyle =
     "#062d5c";
 
-    ectx.font=
+    ectx.font =
     "bold 16px Arial";
 
-    ectx.textAlign=
+    ectx.textAlign =
     "center";
 
 
     ectx.fillText(
         "0 V",
         left,
-        28
+        plateTop-10
     );
 
 
     ectx.fillText(
-        "+"+
-        voltage+
-        " V",
+        "+10 V",
         right,
-        28
+        plateTop-10
     );
 
 
     /*
-    Dibujar puntos
+    Colores.
     */
 
-
-    const colors={
+    const colors = {
 
         10:"#e63946",
         8:"#f08c00",
@@ -3000,35 +2737,37 @@ function drawExperimental(){
     };
 
 
+    /*
+    Puntos.
+    */
+
     Object.keys(
-    experimentalPoints
+        experimentalPoints
     )
     .forEach(
     V=>{
 
-        const points=
+        const points =
         experimentalPoints[V];
 
 
         points.forEach(
         (p,index)=>{
 
-            const px=
+            const px =
             left+
             (
-                p.x/
-                distance
+                p.x/distance
             )*
             (
                 right-left
             );
 
 
-            const py=
+            const py =
             bottom-
             (
-                p.y/
-                10
+                p.y/TANK_HEIGHT_CM
             )*
             (
                 bottom-top
@@ -3046,33 +2785,29 @@ function drawExperimental(){
             );
 
 
-            ectx.fillStyle=
+            ectx.fillStyle =
             colors[V];
 
             ectx.fill();
 
 
-            ectx.strokeStyle=
+            ectx.strokeStyle =
             "white";
 
-            ectx.lineWidth=2;
+            ectx.lineWidth = 2;
 
             ectx.stroke();
 
 
-            ectx.fillStyle=
+            ectx.fillStyle =
             "#243447";
 
-            ectx.font=
+            ectx.font =
             "12px Arial";
 
 
             ectx.fillText(
-                V+
-                "V-"+
-
-                (index+1),
-
+                V+"V-"+(index+1),
                 px,
                 py-10
             );
@@ -3083,31 +2818,22 @@ function drawExperimental(){
 
 
     /*
-    Curvas de referencia ideales
+    Equipotenciales ideales de referencia.
     */
 
-
-    [2,4,6,8,10]
+    [2,4,6,8]
     .forEach(
     V=>{
 
-        if(V>=voltage)
-            return;
-
-
-        const x=
-        V/
-        voltage*
+        const x =
+        V/APPLIED_VOLTAGE*
         distance;
 
 
-        const px=
+        const px =
         left+
-        x/
-        distance*
-        (
-            right-left
-        );
+        x/distance*
+        (right-left);
 
 
         ectx.beginPath();
@@ -3123,13 +2849,13 @@ function drawExperimental(){
         );
 
 
-        ectx.strokeStyle=
-        "rgba(11,92,171,.25)";
+        ectx.strokeStyle =
+        "rgba(11,92,171,.20)";
 
-        ectx.lineWidth=2;
+        ectx.lineWidth = 2;
 
         ectx.setLineDash(
-        [6,6]
+            [6,6]
         );
 
         ectx.stroke();
@@ -3138,7 +2864,6 @@ function drawExperimental(){
 
     });
 
-
 }
 
 
@@ -3146,16 +2871,15 @@ function drawExperimental(){
    TABLA DE LOS 30 PUNTOS
 ============================================================ */
 
-
 function updateExperimentalTable(){
 
-    const table=
+    const table =
     document.getElementById(
-    "experimentalTable"
+        "experimentalTable"
     );
 
 
-    table.innerHTML="";
+    table.innerHTML = "";
 
 
     [
@@ -3172,13 +2896,13 @@ function updateExperimentalTable(){
         .forEach(
         (p,index)=>{
 
-            const row=
+            const row =
             document.createElement(
-            "tr"
+                "tr"
             );
 
 
-            row.innerHTML=`
+            row.innerHTML = `
 
             <td>${V} V</td>
 
@@ -3192,7 +2916,7 @@ function updateExperimentalTable(){
 
 
             table.appendChild(
-            row
+                row
             );
 
         });
@@ -3200,9 +2924,9 @@ function updateExperimentalTable(){
     });
 
 
-    const count=
+    const count =
     Object.values(
-    experimentalPoints
+        experimentalPoints
     )
     .reduce(
         (sum,array)=>
@@ -3213,11 +2937,10 @@ function updateExperimentalTable(){
 
     document
     .getElementById(
-    "pointCount"
+        "pointCount"
     )
-    .textContent=
-    count+
-    " / 30";
+    .textContent =
+    count+" / 30";
 
 }
 
@@ -3226,33 +2949,38 @@ function updateExperimentalTable(){
    ANIMACIÓN
 ============================================================ */
 
-
 function toggleAnimation(){
 
-    animationRunning=
+    animationRunning =
     !animationRunning;
 
 
-    const button=
+    const button =
     document.getElementById(
-    "animateButton"
+        "animateButton"
     );
 
 
     if(animationRunning){
 
-        button.textContent=
+        button.textContent =
         "⏸ Pausar";
-
 
         animate();
 
     }
-
     else{
 
-        button.textContent=
+        button.textContent =
         "▶ Iniciar";
+
+        if(animationId){
+
+            cancelAnimationFrame(
+                animationId
+            );
+
+        }
 
     }
 
@@ -3261,26 +2989,43 @@ function toggleAnimation(){
 
 function animate(){
 
-    if(!animationRunning)
+    if(!animationRunning){
+
         return;
-
-
-    position+=0.05;
-
-
-    if(position>distance){
-
-        position=0;
 
     }
 
 
-    update();
+    position += 0.04;
 
 
-    animationId=
+    if(position > distance){
+
+        position = 0;
+
+    }
+
+
+    positionSlider.value =
+    position;
+
+
+    document
+    .getElementById(
+        "positionValue"
+    )
+    .textContent =
+    position.toFixed(1)+" cm";
+
+
+    drawField();
+
+    drawGraph();
+
+
+    animationId =
     requestAnimationFrame(
-    animate
+        animate
     );
 
 }
@@ -3290,33 +3035,35 @@ function animate(){
    RESET
 ============================================================ */
 
-
 function resetSimulation(){
 
-    animationRunning=false;
-if(position > distance){
-    position = distance;
-    positionSlider.value = distance;
-}
-
-positionSlider.value = position;
-
-document
-.getElementById("positionValue")
-.textContent =
-position.toFixed(1) + " cm";
-
-    voltage=12;
-
-    distance=12;
+    animationRunning = false;
 
 
-    voltageSlider.value=12;
+    if(animationId){
 
-    distanceSlider.value=12;
+        cancelAnimationFrame(
+            animationId
+        );
+
+    }
 
 
-    experimentalPoints={
+    distance = 12;
+
+    position = 6;
+
+    mode = "edge";
+
+
+    distanceSlider.value = 12;
+
+    positionSlider.value = 6;
+
+    positionSlider.max = 12;
+
+
+    experimentalPoints = {
 
         10:[],
         8:[],
@@ -3329,10 +3076,18 @@ position.toFixed(1) + " cm";
 
     document
     .getElementById(
-    "animateButton"
+        "animateButton"
     )
-    .textContent=
+    .textContent =
     "▶ Iniciar";
+
+
+    document
+    .getElementById(
+        "modeText"
+    )
+    .textContent =
+    "Efectos de borde";
 
 
     update();
@@ -3346,10 +3101,8 @@ position.toFixed(1) + " cm";
    INICIALIZACIÓN
 ============================================================ */
 
-
-positionSlider.max=
+positionSlider.max =
 distance;
-
 
 solvePotential();
 
@@ -3358,21 +3111,7 @@ update();
 updateExperimentalTable();
 
 </script>
-<script>
-window.MathJax = {
-    tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['\\[', '\\]'], ['$$', '$$']]
-    },
-    svg: {
-        fontCache: 'global'
-    }
-};
-</script>
 
-<script
-src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-</script>
 </body>
 
 </html>
